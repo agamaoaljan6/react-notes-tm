@@ -1,3 +1,0 @@
-React is a Javascript library created by facebook. it is often called a FRAMEWORK because of it's behavior and capabilities. 
-React is the most popular framework in the industry (for now)
-

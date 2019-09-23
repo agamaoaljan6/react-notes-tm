@@ -1,0 +1,48 @@
+React is a Javascript library created by facebook. it is often called a FRAMEWORK because of it's behavior and capabilities. 
+React is the most popular framework in the industry (for now)
+
+Why use it? 
+- makes front-end JS much easier 
+- uses self contained independent components 
+- VIRTUAL DOM 
+- Much more interactive UIs
+- JSX - easily incorporate JS in markup (use JS right in markup)
+- Easy to work with teams
+
+What should you know before learning react? 
+- Javascript Fundamentals (Objects, Arrays, Conditionals, etc)
+- Classes 
+- Destructuring 
+- High Order Array Methods (forEach, map, filter)
+- Arrow Functions 
+- API fetching and Promises
+
+React State 
+- Components can have state which is an object that determines how that component renders and behaves 
+- We can also have "application level" state by using a state manager like REDUX or Reacts own CONTEXT API
+
+create-react-application
+- CLI Tool for creating react applications 
+- Uses Webpack but needs no configuration 
+- Comes bundled wth dev server with hot reload 
+- "npm run build" will compile all your code
+
+Anatomy of a Component 
+
+Class Post extends React.Component {
+    state= {
+        title: "Post One",
+        body: "This is my post"
+    }
+    render() {
+        return (
+            <div>
+                <h3>{this.state.title}</h3>
+                <h3>{this.state.body}</h3>
+            </div>
+        )
+    }
+}
+
+TO CREATE REACT APP ON WINDOWS YOU MUST USE "NPX" 
+- npx create-react-app my-app
