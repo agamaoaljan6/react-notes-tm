@@ -55,3 +55,25 @@ Basic Cleanup
 - Delete logo.svg
 - Delete header code inside App class
 - Add a reset css on App.css (borderbox, padding, margin, font etc)
+
+Importing Component from App.js 
+- import Todos from './Components/Todos'
+- <Todos/>
+
+STATE
+- state = {
+    todos: [
+        {
+            id: 1,
+            title: 'Take out trash',
+            completed: false
+        }
+    ]
+}
+- access state: this.state(whatever you name it) ex. 'this.state.todos'
+- passing the state on the component as a prop: <Todos todos={this.state.todos}/> 
+- and then you can access the props by 'this.props.todos' after passing it onto the component
+
+PROPTYPES 
+- validation for properties that a component should have 
+- you can set the type (required or not)
