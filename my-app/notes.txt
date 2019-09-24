@@ -77,3 +77,5 @@ STATE
 PROPTYPES 
 - validation for properties that a component should have 
 - you can set the type (required or not)
+
+Using ARROW functions doesnt require you to BIND 'this'
