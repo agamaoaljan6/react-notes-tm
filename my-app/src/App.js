@@ -4,28 +4,22 @@ import Todos from './Components/Todos';
 import Header from './Components/Layout/Header';
 import  AddTodo from './Components/AddTodo';
 import About from './Components/Pages/About';
-import uuid from 'uuid';
+// import uuid from 'uuid';
+import axios from 'axios';
+
 import './App.css';
+
 
 class App extends Component{
    state = {
-     todos: [{
-       id: uuid.v4(),
-       title: 'Take out trash',
-       completed: false
-     }, 
-     {
-       id: uuid.v4(),
-       title: 'Take out food',
-       completed: true
-     }, 
-     {
-       id: uuid.v4(),
-       title: 'Take out dog',
-       completed: false
-     }]
+     todos: []
    }
 
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then(res => this.setState({todos:res.data}))
+  }
   //  Toggle Complete
     markComplete = (id) => {
       this.setState({ todos:this.state.todos.map(todo => {
@@ -39,7 +33,10 @@ class App extends Component{
 
   // Delete todo
   delTodo = (id)=> {
-    this.setState({todos:[...this.state.todos.filter(todo=>todo.id !== id)]})
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then(res => this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    }));
     // filter will loop through and then return another array afterwards
     // return ids that doesn't match the ids that currently passed in
     // spread operator lets you copy what's already in the array [...]
@@ -47,12 +44,12 @@ class App extends Component{
 
   // Add Todo
   addTodo = (title) => {
-    const newTodo = {
-      id: uuid.v4(),
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
       title,
       completed: false
-    }
-    this.setState({todos:[...this.state.todos, newTodo]});
+    })
+    .then(res =>this.setState({todos:[...this.state.todos, res.data]}));
+    
   }
   render() {
     console.log(this.state.todos)
