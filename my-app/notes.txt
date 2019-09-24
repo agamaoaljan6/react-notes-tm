@@ -46,3 +46,12 @@ Class Post extends React.Component {
 
 TO CREATE REACT APP ON WINDOWS YOU MUST USE "NPX" 
 - npx create-react-app my-app
+
+- You can put CDN on index.html located in public folder
+(bootstrap, fontawesome, etc)
+
+Basic Cleanup
+- Delete index.css
+- Delete logo.svg
+- Delete header code inside App class
+- Add a reset css on App.css (borderbox, padding, margin, font etc)
